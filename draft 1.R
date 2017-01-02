@@ -281,7 +281,10 @@ y
 mean(x)
 median(y)
 
-
+#Looking at the graphs, one specific patch always seems to resemble the graph that we're looking for.
+#Am not sure about what to do next! Should I be focussing on each patch or that one patch thats got a clear curve?
+#Should I further divide each year into specific patches?
+#Am I doing it right with the metrics?
 
 
 
