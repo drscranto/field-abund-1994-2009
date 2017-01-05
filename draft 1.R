@@ -245,6 +245,12 @@ plot16 <- ggplot( ccbug_my.year, aes (x = month,
 #i <- as.numeric()
 #plot <- c()
 #for( i in unique(ccbug1$year)){
+
+
+##KATIE: TRY USING assign()
+## as a test say: i <- 1; x1 <- 4; assign(paste0("x",i),7); x1
+
+
 #plot[i] <- ggplot( subset(ccbug1, year == i), aes (x = month,
 #                                       y = Densities,
 #                                       group = patch,
@@ -286,6 +292,12 @@ median(y)
 #Should I further divide each year into specific patches?
 #Am I doing it right with the metrics?
 
+##KATIE:
+# The plots look great. Yes, you are calculating the metrics correctly, x ends up being a vector of all of the patch means for one year.
+# It's good to keep an eye on the one patch that seems to have a clear pattern but lets stick with all of the patches for right now. Sometimes the visuals can be tricky and patterns are sometimes revealed only by the statistics.
+# Its always good to take a step back and look at the bigger question. We are interested in the way the pattern of adult density (or a metric representing it in someway) is changing over time. So to do that we need a dataset of the metric for each patch in each year. Then we need to estimate the relationship of the metric ~ year, after accounting for random differences between patches.
+# So we need a matrix (or data.frame) with a column for patch, one for year, and a column for each metric. So maybe instead of saving just b, you can save (c(i, b)) and loop through all the the ccbug_my.year data.frames? Or you could start with the large data set and have two nested loops, one for year, then one for patch? If you initialize a matrix before the loop (instead of c()) then you can use rbind() to add rows to it as you loop.
+# After we make the data set we can use a mixed-effects regression (lmer in package lme4) to estimate the strength of the relationship of density and year
 
 
 
